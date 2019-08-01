@@ -1,14 +1,15 @@
---For dropping existing tables
---DROP TABLE PRSUPPLIER;
---DROP TABLE PRPRODUCT;
+--For dropping existing PR tables
+--DROP TABLE PRPRODUCTLOCATIONS;
 --DROP TABLE PRLOCATION;
+--DROP TABLE PRORDERITEMS;
+--DROP TABLE PRSHIPPING;
+--DROP TABLE PRPRODUCT;
 --DROP TABLE PRCATEGORY;
+--DROP TABLE PRORDER;
+--DROP TABLE PRSHIPPER;
+--DROP TABLE PRSUPPLIER;
 --DROP TABLE PRCUSTOMER;
 --DROP TABLE PREMPLOYEES;
---DROP TABLE PRORDER;
---DROP TABLE PRORDERITEMS;
---DROP TABLE PRSHIPPER;
---DROP TABLE PRSHIPPING;
 
 --For viewing tables
 --SELECT * FROM PRSUPPLIER;
@@ -60,11 +61,6 @@ INSERT INTO PRCATEGORY (category_name) values ('lunchbox');
 INSERT INTO PRCATEGORY (category_name) values ('jwellery');
 INSERT INTO PRCATEGORY (category_name) values ('bulk');
 
-
------------***REALLLY LONG DIVIDER***-----------
-
-
-SELECT * FROM PRSUPPLIER;
 
 --PRSUPPLIER table creation
 
@@ -243,7 +239,6 @@ INSERT INTO PRPRODUCT (category_id,supplier_id,product_description,stock,upc,vin
 
 
 --creating intermediate table product_location
-DROP TABLE PRPRODUCTLOCATIONS;
 
 CREATE TABLE PRPRODUCTLOCATIONS(
 product_id NUMBER(5),
@@ -259,55 +254,54 @@ ADD CONSTRAINT FK_PRODUCTLOCATIONS_id
 FOREIGN KEY (location_id) REFERENCES PRLOCATION(location_id);
 
 --inserting data into product_location table
-
-INSERT INTO PRPRODUCTLOCATIONS (product_id,location_id) VALUES (1,10011);
-INSERT INTO PRPRODUCTLOCATIONS (product_id,location_id) VALUES (2,10012);
-INSERT INTO PRPRODUCTLOCATIONS (product_id,location_id) VALUES (3,30031);
-INSERT INTO PRPRODUCTLOCATIONS (product_id,location_id) VALUES (4,40041);
-INSERT INTO PRPRODUCTLOCATIONS (product_id,location_id) VALUES (5,50051);
-INSERT INTO PRPRODUCTLOCATIONS (product_id,location_id) VALUES (6,60061);
-INSERT INTO PRPRODUCTLOCATIONS (product_id,location_id) VALUES (7,10012);
-INSERT INTO PRPRODUCTLOCATIONS (product_id,location_id) VALUES (8,20022);
-INSERT INTO PRPRODUCTLOCATIONS (product_id,location_id) VALUES (9,30033);
-INSERT INTO PRPRODUCTLOCATIONS (product_id,location_id) VALUES (10,40044);
-INSERT INTO PRPRODUCTLOCATIONS (product_id,location_id) VALUES (11,50055);
-INSERT INTO PRPRODUCTLOCATIONS (product_id,location_id) VALUES (12,10013);
-INSERT INTO PRPRODUCTLOCATIONS (product_id,location_id) VALUES (13,20023);
-INSERT INTO PRPRODUCTLOCATIONS (product_id,location_id) VALUES (14,30033);
-INSERT INTO PRPRODUCTLOCATIONS (product_id,location_id) VALUES (15,40044);
-INSERT INTO PRPRODUCTLOCATIONS (product_id,location_id) VALUES (16,50055);
-INSERT INTO PRPRODUCTLOCATIONS (product_id,location_id) VALUES (17,60065);
-INSERT INTO PRPRODUCTLOCATIONS (product_id,location_id) VALUES (21,10014);
-INSERT INTO PRPRODUCTLOCATIONS (product_id,location_id) VALUES (22,20024);
-INSERT INTO PRPRODUCTLOCATIONS (product_id,location_id) VALUES (23,30034);
-INSERT INTO PRPRODUCTLOCATIONS (product_id,location_id) VALUES (24,40044);
-INSERT INTO PRPRODUCTLOCATIONS (product_id,location_id) VALUES (25,50055);
-INSERT INTO PRPRODUCTLOCATIONS (product_id,location_id) VALUES (23,10015);
-INSERT INTO PRPRODUCTLOCATIONS (product_id,location_id) VALUES (21,20025);
-INSERT INTO PRPRODUCTLOCATIONS (product_id,location_id) VALUES (2,30035);
-INSERT INTO PRPRODUCTLOCATIONS (product_id,location_id) VALUES (4,40045);
-INSERT INTO PRPRODUCTLOCATIONS (product_id,location_id) VALUES (6,50055);
-INSERT INTO PRPRODUCTLOCATIONS (product_id,location_id) VALUES (1,60065);
-INSERT INTO PRPRODUCTLOCATIONS (product_id,location_id) VALUES (6,10016);
-INSERT INTO PRPRODUCTLOCATIONS (product_id,location_id) VALUES (1,20026);
-INSERT INTO PRPRODUCTLOCATIONS (product_id,location_id) VALUES (9,30036);
-INSERT INTO PRPRODUCTLOCATIONS (product_id,location_id) VALUES (1,40046);
-INSERT INTO PRPRODUCTLOCATIONS (product_id,location_id) VALUES (22,50056);
-INSERT INTO PRPRODUCTLOCATIONS (product_id,location_id) VALUES (1,10017);
-INSERT INTO PRPRODUCTLOCATIONS (product_id,location_id) VALUES (9,20027);
-INSERT INTO PRPRODUCTLOCATIONS (product_id,location_id) VALUES (1,30037);
-INSERT INTO PRPRODUCTLOCATIONS (product_id,location_id) VALUES (5,40047);
-INSERT INTO PRPRODUCTLOCATIONS (product_id,location_id) VALUES (1,50057);
-INSERT INTO PRPRODUCTLOCATIONS (product_id,location_id) VALUES (4,10018);
-INSERT INTO PRPRODUCTLOCATIONS (product_id,location_id) VALUES (1,20028);
-INSERT INTO PRPRODUCTLOCATIONS (product_id,location_id) VALUES (1,30038);
-INSERT INTO PRPRODUCTLOCATIONS (product_id,location_id) VALUES (1,40048);
-INSERT INTO PRPRODUCTLOCATIONS (product_id,location_id) VALUES (6,50058);
-INSERT INTO PRPRODUCTLOCATIONS (product_id,location_id) VALUES (1,10019);
-INSERT INTO PRPRODUCTLOCATIONS (product_id,location_id) VALUES (7,20029);
-INSERT INTO PRPRODUCTLOCATIONS (product_id,location_id) VALUES (1,30039);
-INSERT INTO PRPRODUCTLOCATIONS (product_id,location_id) VALUES (3,40049);
-INSERT INTO PRPRODUCTLOCATIONS (product_id,location_id) VALUES (1,50059);
+INSERT INTO PRPRODUCTLOCATIONS (product_id,location_id) VALUES (8001,10011);
+INSERT INTO PRPRODUCTLOCATIONS (product_id,location_id) VALUES (8002,10012);
+INSERT INTO PRPRODUCTLOCATIONS (product_id,location_id) VALUES (8003,30031);
+INSERT INTO PRPRODUCTLOCATIONS (product_id,location_id) VALUES (8004,40041);
+INSERT INTO PRPRODUCTLOCATIONS (product_id,location_id) VALUES (8005,50051);
+INSERT INTO PRPRODUCTLOCATIONS (product_id,location_id) VALUES (8006,60061);
+INSERT INTO PRPRODUCTLOCATIONS (product_id,location_id) VALUES (8007,10012);
+INSERT INTO PRPRODUCTLOCATIONS (product_id,location_id) VALUES (8008,20022);
+INSERT INTO PRPRODUCTLOCATIONS (product_id,location_id) VALUES (8009,30033);
+INSERT INTO PRPRODUCTLOCATIONS (product_id,location_id) VALUES (8010,40044);
+INSERT INTO PRPRODUCTLOCATIONS (product_id,location_id) VALUES (8011,50055);
+INSERT INTO PRPRODUCTLOCATIONS (product_id,location_id) VALUES (8012,10013);
+INSERT INTO PRPRODUCTLOCATIONS (product_id,location_id) VALUES (8013,20023);
+INSERT INTO PRPRODUCTLOCATIONS (product_id,location_id) VALUES (8014,30033);
+INSERT INTO PRPRODUCTLOCATIONS (product_id,location_id) VALUES (8015,40044);
+INSERT INTO PRPRODUCTLOCATIONS (product_id,location_id) VALUES (8016,50055);
+INSERT INTO PRPRODUCTLOCATIONS (product_id,location_id) VALUES (8017,60065);
+INSERT INTO PRPRODUCTLOCATIONS (product_id,location_id) VALUES (8021,10014);
+INSERT INTO PRPRODUCTLOCATIONS (product_id,location_id) VALUES (8022,20024);
+INSERT INTO PRPRODUCTLOCATIONS (product_id,location_id) VALUES (8023,30034);
+INSERT INTO PRPRODUCTLOCATIONS (product_id,location_id) VALUES (8024,40044);
+INSERT INTO PRPRODUCTLOCATIONS (product_id,location_id) VALUES (8025,50055);
+INSERT INTO PRPRODUCTLOCATIONS (product_id,location_id) VALUES (8023,10015);
+INSERT INTO PRPRODUCTLOCATIONS (product_id,location_id) VALUES (8021,20025);
+INSERT INTO PRPRODUCTLOCATIONS (product_id,location_id) VALUES (8002,30035);
+INSERT INTO PRPRODUCTLOCATIONS (product_id,location_id) VALUES (8004,40045);
+INSERT INTO PRPRODUCTLOCATIONS (product_id,location_id) VALUES (8006,50055);
+INSERT INTO PRPRODUCTLOCATIONS (product_id,location_id) VALUES (8001,60065);
+INSERT INTO PRPRODUCTLOCATIONS (product_id,location_id) VALUES (8006,10016);
+INSERT INTO PRPRODUCTLOCATIONS (product_id,location_id) VALUES (8001,20026);
+INSERT INTO PRPRODUCTLOCATIONS (product_id,location_id) VALUES (8009,30036);
+INSERT INTO PRPRODUCTLOCATIONS (product_id,location_id) VALUES (8001,40046);
+INSERT INTO PRPRODUCTLOCATIONS (product_id,location_id) VALUES (8022,50056);
+INSERT INTO PRPRODUCTLOCATIONS (product_id,location_id) VALUES (8001,10017);
+INSERT INTO PRPRODUCTLOCATIONS (product_id,location_id) VALUES (8009,20027);
+INSERT INTO PRPRODUCTLOCATIONS (product_id,location_id) VALUES (8001,30037);
+INSERT INTO PRPRODUCTLOCATIONS (product_id,location_id) VALUES (8005,40047);
+INSERT INTO PRPRODUCTLOCATIONS (product_id,location_id) VALUES (8001,50057);
+INSERT INTO PRPRODUCTLOCATIONS (product_id,location_id) VALUES (8004,10018);
+INSERT INTO PRPRODUCTLOCATIONS (product_id,location_id) VALUES (8001,20028);
+INSERT INTO PRPRODUCTLOCATIONS (product_id,location_id) VALUES (8001,30038);
+INSERT INTO PRPRODUCTLOCATIONS (product_id,location_id) VALUES (8001,40048);
+INSERT INTO PRPRODUCTLOCATIONS (product_id,location_id) VALUES (8006,50058);
+INSERT INTO PRPRODUCTLOCATIONS (product_id,location_id) VALUES (8001,10019);
+INSERT INTO PRPRODUCTLOCATIONS (product_id,location_id) VALUES (8007,20029);
+INSERT INTO PRPRODUCTLOCATIONS (product_id,location_id) VALUES (8001,30039);
+INSERT INTO PRPRODUCTLOCATIONS (product_id,location_id) VALUES (8003,40049);
+INSERT INTO PRPRODUCTLOCATIONS (product_id,location_id) VALUES (8001,50059);
 
 
 
@@ -369,9 +363,6 @@ INSERT INTO PREMPLOYEES (firstname,lastname,street,city,email,phone_number) VALU
 INSERT INTO PREMPLOYEES (firstname,lastname,street,city,email,phone_number) VALUES ('SARAH-JANE' ,'MAGANA','7550 HILLTOP AVE','HERCULES', 'sarana@gmail.com','6738928134');
 INSERT INTO PREMPLOYEES (firstname,lastname,street,city,email,phone_number) VALUES ('MINAHIL' ,'SALGADO','37 MARVON ST', 'WALTON','minado@gmail.com','8792348162');
 
-
-
-SELECT * FROM PRSHIPPER;
 
 --table creation: PRSHIPPER
 CREATE TABLE PRSHIPPER(
@@ -445,26 +436,25 @@ FOREIGN KEY(product_id) REFERENCES PRPRODUCT(product_id);
 
 ALTER TABLE PRORDERITEMS 
 ADD CONSTRAINT FK_ORDERITEMS_order_id
-FOREIGN KEY(order_id) REFERENCES PRorder(order_id);
-
+FOREIGN KEY(order_id) REFERENCES PRORDER(order_id);
 
 --PRPRORDERITEMS table data insersion
-INSERT INTO PRORDERITEMS (product_id,order_id,price,quantity) values (1,9000,22,8);
-INSERT INTO PRORDERITEMS (product_id,order_id,price,quantity) values (5,9001,43,2);
-INSERT INTO PRORDERITEMS (product_id,order_id,price,quantity) values (26,9002,210,5);
-INSERT INTO PRORDERITEMS (product_id,order_id,price,quantity) values (15,9003,100,6);
-INSERT INTO PRORDERITEMS (product_id,order_id,price,quantity) values (27,9004,100,7);
-INSERT INTO PRORDERITEMS (product_id,order_id,price,quantity) values (7,9005,110,8);
-INSERT INTO PRORDERITEMS (product_id,order_id,price,quantity) values (17,9006,35,4);
-INSERT INTO PRORDERITEMS (product_id,order_id,price,quantity) values (8,9007,8,1);
-INSERT INTO PRORDERITEMS (product_id,order_id,price,quantity) values (21,9008,70,1);
-INSERT INTO PRORDERITEMS (product_id,order_id,price,quantity) values (9,9009,80,20);
-INSERT INTO PRORDERITEMS (product_id,order_id,price,quantity) values (22,9010,90,10);
-INSERT INTO PRORDERITEMS (product_id,order_id,price,quantity) values (10,9011,15,5);
-INSERT INTO PRORDERITEMS (product_id,order_id,price,quantity) values (23,9012,58,45);
-INSERT INTO PRORDERITEMS (product_id,order_id,price,quantity) values (11,9013,90,110);
-INSERT INTO PRORDERITEMS (product_id,order_id,price,quantity) values (24,9014,100,72);
-INSERT INTO PRORDERITEMS (product_id,order_id,price,quantity) values (25,9015,21,72);
+INSERT INTO PRORDERITEMS (product_id,order_id,price,quantity) values (8001,9000,22,8);
+INSERT INTO PRORDERITEMS (product_id,order_id,price,quantity) values (8005,9001,43,2);
+INSERT INTO PRORDERITEMS (product_id,order_id,price,quantity) values (8026,9002,210,5);
+INSERT INTO PRORDERITEMS (product_id,order_id,price,quantity) values (8015,9003,100,6);
+INSERT INTO PRORDERITEMS (product_id,order_id,price,quantity) values (8026,9004,100,7);
+INSERT INTO PRORDERITEMS (product_id,order_id,price,quantity) values (8007,9005,110,8);
+INSERT INTO PRORDERITEMS (product_id,order_id,price,quantity) values (8017,9006,35,4);
+INSERT INTO PRORDERITEMS (product_id,order_id,price,quantity) values (8008,9007,8,1);
+INSERT INTO PRORDERITEMS (product_id,order_id,price,quantity) values (8021,9008,70,1);
+INSERT INTO PRORDERITEMS (product_id,order_id,price,quantity) values (8009,9009,80,20);
+INSERT INTO PRORDERITEMS (product_id,order_id,price,quantity) values (8022,9010,90,10);
+INSERT INTO PRORDERITEMS (product_id,order_id,price,quantity) values (8010,9011,15,5);
+INSERT INTO PRORDERITEMS (product_id,order_id,price,quantity) values (8023,9012,58,45);
+INSERT INTO PRORDERITEMS (product_id,order_id,price,quantity) values (8011,9013,90,110);
+INSERT INTO PRORDERITEMS (product_id,order_id,price,quantity) values (8024,9014,100,72);
+INSERT INTO PRORDERITEMS (product_id,order_id,price,quantity) values (8025,9015,21,72);
 
 ---updating total prices in PRORDERS table using PRORDERITEMS
 UPDATE PRORDER o
@@ -494,9 +484,6 @@ FOREIGN KEY(order_id) REFERENCES PRORDER(order_id);
 ALTER TABLE PRSHIPPING 
 ADD CONSTRAINT FK_PRSHIPPING_shipper_id
 FOREIGN KEY(shipper_id) REFERENCES PRSHIPPER(shipper_id);
-
-select * from PRSHIPPER;
-
 
 
 --PRSHIPPING data insersion
